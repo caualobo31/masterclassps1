@@ -791,8 +791,7 @@
         <h2>Masterclass <em>Primeira Sessão Infantil</em></h2>
         <p class="product-sub">O passo a passo pra conduzir qualquer primeira sessão com segurança, do acolhimento ao fechamento.</p>
 
-        <div class="mockup-placeholder" id="mockupPlaceholder">[ MOCKUP DA MASTERCLASS ]</div>
-        <img class="mockup-img" id="mockupImg" src="" alt="Masterclass Primeira Sessão Infantil" style="display:none;">
+        <img class="mockup-img" src="Design sem nome.png" alt="Masterclass Primeira Sessão Infantil">
 
         <div class="modules-grid">
             <div class="module-card">
@@ -886,6 +885,8 @@
         <h2>Tudo isso por um único pagamento</h2>
 
         <div class="offer-card">
+            <img src="Design sem nome.png" alt="Masterclass Primeira Sessão Infantil" style="width:100%;border-radius:10px;margin-bottom:20px;display:block;">
+
             <p class="stack-title">Resumo da oferta</p>
 
             <ul class="stack-list">
@@ -992,15 +993,6 @@
 <script>
     lucide.createIcons();
 
-    // Carrega mockup salvo
-    const mockup = localStorage.getItem('masterclass_mockup');
-    if (mockup) {
-        const img = document.getElementById('mockupImg');
-        const placeholder = document.getElementById('mockupPlaceholder');
-        img.src = mockup;
-        img.style.display = 'block';
-        placeholder.style.display = 'none';
-    }
 </script>
 
 </body>
