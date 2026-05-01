@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Mockup — Masterclass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #2A9D8F;
+            --teal-dark: #238577;
+            --gold: #F4C553;
+            --bg-cream: #FAF9F6;
+            --text-dark: #2B2D42;
+            --text-body: #4A4A5A;
+            --text-muted: #7F8C9B;
+            --white: #FFFFFF;
+            --border: #E8E5E0;
+            --success: #27AE60;
+            --red: #E63946;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-body);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header .tag {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* DROPZONE */
+        .dropzone {
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: 50px 30px;
+            text-align: center;
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .dropzone:hover,
+        .dropzone.drag-over {
+            border-color: var(--teal);
+            background: #f0faf9;
+        }
+
+        .dropzone input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        .dropzone-icon {
+            width: 56px;
+            height: 56px;
+            background: #f0faf9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .dropzone-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--teal);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .dropzone h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .dropzone p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .dropzone .file-types {
+            display: inline-flex;
+            gap: 6px;
+            margin-top: 14px;
+        }
+
+        .dropzone .file-types span {
+            background: var(--bg-cream);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 3px 10px;
+        }
+
+        /* PREVIEW SECTION */
+        .preview-section {
+            display: none;
+        }
+
+        .preview-section.visible {
+            display: block;
+        }
+
+        .preview-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        /* Preview no contexto real da página */
+        .preview-context {
+            background: var(--teal);
+            padding: 32px 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .preview-context .ctx-title {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .preview-context img {
+            max-width: 420px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* FILE INFO */
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+
+        .file-info .file-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .file-info .file-details {
+            flex: 1;
+        }
+
+        .file-info .file-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-info .file-size {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .file-info .change-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-body);
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .file-info .change-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .file-info .change-btn input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ACTIONS */
+        .actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-save {
+            flex: 1;
+            background: var(--teal);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 6px 20px rgba(42,157,143,0.3);
+        }
+
+        .btn-save:hover {
+            background: var(--teal-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-save:disabled {
+            background: var(--border);
+            color: var(--text-muted);
+            box-shadow: none;
+            transform: none;
+            cursor: not-allowed;
+        }
+
+        .btn-clear {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 16px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-clear:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        /* FEEDBACK */
+        .feedback {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: #eafaf1;
+            border: 1px solid #a9dfbf;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .feedback.visible {
+            display: flex;
+        }
+
+        .feedback svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--success);
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        /* LINK PARA PÁGINA */
+        .open-page {
+            display: block;
+            text-align: center;
+            margin-top: 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .open-page:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .open-page span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* STATUS DA PÁGINA */
+        .status-banner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .status-dot.ok { background: var(--success); }
+        .status-dot.empty { background: #F4A261; }
+
+        .status-banner p {
+            font-size: 13px;
+            color: var(--text-body);
+        }
+
+        .status-banner strong {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span class="tag">Configuração</span>
+        <h1>Mockup da Masterclass</h1>
+        <p>Selecione ou arraste a imagem do mockup. Ela aparecerá automaticamente na página de upsell.</p>
+    </div>
+
+    <!-- STATUS ATUAL -->
+    <div class="status-banner" id="statusBanner">
+        <div class="status-dot empty" id="statusDot"></div>
+        <p id="statusText"><strong>Nenhuma imagem definida.</strong> O placeholder padrão está sendo exibido.</p>
+    </div>
+
+    <!-- DROPZONE -->
+    <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg,image/webp,image/gif">
+        <div class="dropzone-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <h3>Arraste a imagem aqui</h3>
+        <p>ou clique para selecionar do seu computador</p>
+        <div class="file-types">
+            <span>PNG</span>
+            <span>JPG</span>
+            <span>WEBP</span>
+        </div>
+    </div>
+
+    <!-- PREVIEW (aparece após seleção) -->
+    <div class="preview-section" id="previewSection">
+
+        <p class="preview-label">Como vai aparecer na página</p>
+
+        <div class="preview-context">
+            <p class="ctx-title">Seção da Masterclass</p>
+            <img id="previewImg" src="" alt="Mockup da Masterclass">
+        </div>
+
+        <!-- FILE INFO -->
+        <div class="file-info">
+            <img id="thumbImg" class="file-thumb" src="" alt="">
+            <div class="file-details">
+                <div class="file-name" id="fileName">—</div>
+                <div class="file-size" id="fileSize">—</div>
+            </div>
+            <button class="change-btn">
+                Trocar
+                <input type="file" id="changeInput" accept="image/png,image/jpeg,image/jpg,image/webp">
+            </button>
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="actions">
+            <button class="btn-save" id="btnSave">Salvar e aplicar na página</button>
+            <button class="btn-clear" id="btnClear">Remover</button>
+        </div>
+
+        <div class="feedback" id="feedback">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Imagem salva! Abra a página de upsell para ver o resultado.
+        </div>
+
+    </div>
+
+    <!-- LINK PARA A PÁGINA PRINCIPAL -->
+    <a href="upsell-masterclass-primeira-sessao.html" class="open-page" target="_blank">
+        Abrir página de upsell
+        <span>upsell-masterclass-primeira-sessao.html</span>
+    </a>
+</div>
+
+<script>
+    const fileInput    = document.getElementById('fileInput');
+    const changeInput  = document.getElementById('changeInput');
+    const dropzone     = document.getElementById('dropzone');
+    const previewSection = document.getElementById('previewSection');
+    const previewImg   = document.getElementById('previewImg');
+    const thumbImg     = document.getElementById('thumbImg');
+    const fileName     = document.getElementById('fileName');
+    const fileSize     = document.getElementById('fileSize');
+    const btnSave      = document.getElementById('btnSave');
+    const btnClear     = document.getElementById('btnClear');
+    const feedback     = document.getElementById('feedback');
+    const statusDot    = document.getElementById('statusDot');
+    const statusText   = document.getElementById('statusText');
+
+    let currentDataUrl = null;
+
+    function formatBytes(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function loadFile(file) {
+        if (!file || !file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            currentDataUrl = e.target.result;
+            previewImg.src = currentDataUrl;
+            thumbImg.src   = currentDataUrl;
+            fileName.textContent = file.name;
+            fileSize.textContent = formatBytes(file.size);
+            previewSection.classList.add('visible');
+            feedback.classList.remove('visible');
+        };
+        reader.readAsDataURL(file);
+    }
+
+    fileInput.addEventListener('change', (e) => loadFile(e.target.files[0]));
+    changeInput.addEventListener('change', (e) => loadFile(e.target.files[0]));
+
+    dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+    dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('drag-over');
+        loadFile(e.dataTransfer.files[0]);
+    });
+
+    btnSave.addEventListener('click', () => {
+        if (!currentDataUrl) return;
+        localStorage.setItem('masterclass_mockup', currentDataUrl);
+        feedback.classList.add('visible');
+        updateStatus(true);
+    });
+
+    btnClear.addEventListener('click', () => {
+        localStorage.removeItem('masterclass_mockup');
+        currentDataUrl = null;
+        previewSection.classList.remove('visible');
+        feedback.classList.remove('visible');
+        fileInput.value = '';
+        updateStatus(false);
+    });
+
+    function updateStatus(hasImage) {
+        if (hasImage) {
+            statusDot.className = 'status-dot ok';
+            statusText.innerHTML = '<strong>Imagem configurada.</strong> O mockup está sendo exibido na página.';
+        } else {
+            statusDot.className = 'status-dot empty';
+            statusText.innerHTML = '<strong>Nenhuma imagem definida.</strong> O placeholder padrão está sendo exibido.';
+        }
+    }
+
+    // Verifica estado inicial
+    const saved = localStorage.getItem('masterclass_mockup');
+    if (saved) {
+        currentDataUrl = saved;
+        previewImg.src = saved;
+        thumbImg.src   = saved;
+        fileName.textContent = 'Imagem salva anteriormente';
+        fileSize.textContent = formatBytes(Math.round(saved.length * 0.75));
+        previewSection.classList.add('visible');
+        updateStatus(true);
+    }
+</script>
+
+</body>
+</html>

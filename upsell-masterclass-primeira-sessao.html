@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Especial — Masterclass Primeira Sessão Infantil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --teal: #2A9D8F;
+            --teal-dark: #238577;
+            --teal-light: #3DB8A9;
+            --gold: #F4C553;
+            --gold-dark: #D4A843;
+            --salmon: #F4A261;
+            --red: #E63946;
+            --bg-cream: #FAF9F6;
+            --bg-teal-section: #2A9D8F;
+            --text-dark: #2B2D42;
+            --text-body: #4A4A5A;
+            --text-muted: #7F8C9B;
+            --white: #FFFFFF;
+            --border: #E8E5E0;
+            --success: #27AE60;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-body);
+            background: var(--bg-cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== BARRA DE CONFIRMAÇÃO ========== */
+        .confirmation-bar {
+            background: var(--success);
+            color: var(--white);
+            text-align: center;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .confirmation-bar i { flex-shrink: 0; }
+
+        .confirmation-bar p {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .confirmation-bar span {
+            font-weight: 400;
+            opacity: 0.9;
+            font-size: 13px;
+            display: block;
+        }
+
+        /* ========== HERO / ABERTURA ========== */
+        .upsell-hero {
+            background: var(--white);
+            padding: 50px 0 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .wait-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 800;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .upsell-hero h1 {
+            font-size: clamp(22px, 4.5vw, 32px);
+            font-weight: 800;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto 12px;
+            line-height: 1.3;
+        }
+
+        .upsell-hero h1 em {
+            color: var(--teal);
+            font-style: normal;
+        }
+
+        .upsell-hero .sub-text {
+            font-size: 16px;
+            color: var(--text-body);
+            max-width: 520px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* ========== SEÇÃO DE DOR / IDENTIFICAÇÃO ========== */
+        .pain-section {
+            background: var(--bg-cream);
+            padding: 50px 0;
+        }
+
+        .pain-section .lead-text {
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-align: center;
+            max-width: 580px;
+            margin: 0 auto 32px;
+            line-height: 1.8;
+        }
+
+        .pain-section .lead-text strong {
+            color: var(--teal);
+        }
+
+        .pain-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 560px;
+            margin: 0 auto 32px;
+        }
+
+        .pain-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: var(--white);
+            padding: 18px 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--salmon);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .pain-card i {
+            color: var(--salmon);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pain-card p {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .pain-conclusion {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .pain-conclusion em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        /* ========== SEÇÃO DO PRODUTO ========== */
+        .product-section {
+            background: var(--bg-teal-section);
+            padding: 50px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .product-section .intro-text {
+            font-size: 15px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .product-section h2 {
+            font-size: clamp(22px, 4.5vw, 30px);
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .product-section h2 em {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        .product-section .product-sub {
+            font-size: 15px;
+            opacity: 0.85;
+            max-width: 500px;
+            margin: 0 auto 36px;
+        }
+
+        /* MOCKUP */
+        .mockup-placeholder {
+            width: 100%;
+            max-width: 420px;
+            height: 240px;
+            margin: 0 auto 36px;
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .mockup-img {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto 36px;
+            display: block;
+            border-radius: 14px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+        }
+
+        /* MÓDULOS */
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 520px;
+            margin: 0 auto 36px;
+            text-align: left;
+        }
+
+        .module-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+            padding: 18px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .module-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            color: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .module-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .module-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+            font-weight: 400;
+        }
+
+        /* ========== BÔNUS ========== */
+        .bonus-section {
+            background: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .bonus-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--red), #c0392b);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 800;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bonus-section h2 {
+            font-size: clamp(20px, 4vw, 28px);
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .bonus-section h2 em {
+            color: var(--teal);
+            font-style: normal;
+        }
+
+        .bonus-section .bonus-sub {
+            font-size: 15px;
+            color: var(--text-body);
+            margin-bottom: 32px;
+        }
+
+        .bonus-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .bonus-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: var(--bg-cream);
+            padding: 22px 20px;
+            border-radius: 12px;
+            text-align: left;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bonus-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--teal);
+        }
+
+        .bonus-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: var(--teal);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .bonus-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .bonus-card p {
+            font-size: 13px;
+            color: var(--text-body);
+            margin-bottom: 6px;
+        }
+
+        .bonus-price {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .bonus-price span {
+            text-decoration: line-through;
+        }
+
+        .bonus-price strong {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* ========== OFERTA / PREÇO ========== */
+        .offer-section {
+            background: var(--bg-teal-section);
+            padding: 50px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .offer-section .exclusive-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .offer-section h2 {
+            font-size: clamp(20px, 4vw, 26px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .offer-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 36px 28px;
+            max-width: 480px;
+            margin: 0 auto 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .offer-card .stack-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stack-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .stack-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .stack-list li:last-child { border-bottom: none; }
+
+        .stack-list li .item-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stack-list li .item-left i { color: var(--teal); }
+
+        .stack-list li .item-value {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .stack-total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #FFF8E7;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .stack-total .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stack-total .value {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--red);
+            text-decoration: line-through;
+        }
+
+        .offer-price-block {
+            margin-bottom: 20px;
+        }
+
+        .offer-price-block .from {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .offer-price-block .price {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--teal);
+            line-height: 1;
+        }
+
+        .offer-price-block .price small {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .offer-price-block .payment-info {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* CTA PRINCIPAL */
+        .cta-main {
+            display: block;
+            width: 100%;
+            background: var(--teal);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+            padding: 18px 24px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(42,157,143,0.35);
+            margin-bottom: 10px;
+        }
+
+        .cta-main:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(42,157,143,0.45);
+        }
+
+        .cta-oneclick {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .cta-oneclick i { width: 14px; height: 14px; }
+
+        /* SELOS DENTRO DO CARD */
+        .offer-seals {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .offer-seal {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .offer-seal i { color: var(--teal); width: 16px; height: 16px; }
+
+        /* RECUSAR */
+        .decline-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .decline-link:hover { color: rgba(255,255,255,0.7); }
+
+        /* ========== CAKTO BUTTONS ========== */
+        cakto-upsell-accept { display: block; margin-bottom: 10px; }
+
+        cakto-upsell-accept::part(button) {
+            display: block !important;
+            width: 100% !important;
+            background: var(--teal) !important;
+            color: var(--white) !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 17px !important;
+            font-weight: 800 !important;
+            padding: 18px 24px !important;
+            border-radius: 50px !important;
+            border: none !important;
+            cursor: pointer !important;
+            box-shadow: 0 6px 20px rgba(42,157,143,0.35) !important;
+            transition: all 0.3s !important;
+            text-align: center !important;
+        }
+
+        cakto-upsell-accept::part(button):hover {
+            background: var(--teal-dark) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 28px rgba(42,157,143,0.45) !important;
+        }
+
+        cakto-upsell-reject { display: block; margin-top: 20px; text-align: center; }
+
+        cakto-upsell-reject::part(button) {
+            background: none !important;
+            border: none !important;
+            color: rgba(255,255,255,0.5) !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            cursor: pointer !important;
+            padding: 8px !important;
+            text-align: center !important;
+            width: 100% !important;
+            transition: color 0.2s !important;
+        }
+
+        cakto-upsell-reject::part(button):hover {
+            color: rgba(255,255,255,0.7) !important;
+        }
+
+        /* ========== GARANTIA ========== */
+        .guarantee-section {
+            background: var(--white);
+            padding: 40px 0;
+        }
+
+        .guarantee-box {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 28px;
+            background: var(--bg-cream);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .guarantee-seal {
+            flex-shrink: 0;
+            width: 90px;
+            height: 90px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .guarantee-seal .number {
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .guarantee-seal .label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .guarantee-text h3 {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .guarantee-text p {
+            font-size: 14px;
+            color: var(--text-body);
+        }
+
+        .guarantee-text strong {
+            color: var(--teal);
+        }
+
+        /* ========== RESPONSIVO ========== */
+        @media (max-width: 600px) {
+            .confirmation-bar { flex-direction: column; gap: 4px; }
+            .pain-card { padding: 14px 16px; }
+            .module-card { padding: 14px 16px; }
+            .offer-card { padding: 28px 20px; }
+            .guarantee-box { flex-direction: column; text-align: center; }
+            .offer-seals { gap: 12px; }
+            .bonus-card { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== CONFIRMAÇÃO ========== -->
+<div class="confirmation-bar">
+    <i data-lucide="circle-check-big" style="width:22px;height:22px;"></i>
+    <p>Seu pagamento foi aprovado com sucesso!<span>O acesso ao Kit Consultório Lúdico chegará no seu email em instantes.</span></p>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="upsell-hero">
+    <div class="container">
+        <div class="wait-badge">
+            <i data-lucide="gift" style="width:16px;height:16px;"></i>
+            Espera — liberamos algo especial pra você
+        </div>
+
+        <h1>Você já tem os recursos. Mas sabe <em>conduzir a primeira sessão</em> do início ao fim?</h1>
+
+        <p class="sub-text">Leia essa página até o final. É rápido e só aparece uma vez.</p>
+    </div>
+</section>
+
+<!-- ========== DOR / IDENTIFICAÇÃO ========== -->
+<section class="pain-section">
+    <div class="container">
+        <p class="lead-text">
+            Uma criança nova entra no seu consultório amanhã. <strong>Primeira sessão.</strong> Você sabe exatamente o que fazer?
+        </p>
+
+        <div class="pain-cards">
+            <div class="pain-card">
+                <i data-lucide="help-circle" style="width:20px;height:20px;"></i>
+                <p>Como separar ela dos pais sem choro e sem drama?</p>
+            </div>
+            <div class="pain-card">
+                <i data-lucide="help-circle" style="width:20px;height:20px;"></i>
+                <p>O que fazer nos primeiros 10 minutos se ela não fala nada?</p>
+            </div>
+            <div class="pain-card">
+                <i data-lucide="help-circle" style="width:20px;height:20px;"></i>
+                <p>Qual atividade escolher quando você ainda não conhece a demanda?</p>
+            </div>
+            <div class="pain-card">
+                <i data-lucide="help-circle" style="width:20px;height:20px;"></i>
+                <p>Como fechar a sessão e devolver pros pais com segurança?</p>
+            </div>
+            <div class="pain-card">
+                <i data-lucide="help-circle" style="width:20px;height:20px;"></i>
+                <p>O que anotar depois pra não ficar perdida na sessão seguinte?</p>
+            </div>
+        </div>
+
+        <p class="pain-conclusion">
+            A primeira sessão define se a criança <em>volta ou não volta</em>. E a faculdade não te ensinou isso na prática.
+        </p>
+    </div>
+</section>
+
+<!-- ========== PRODUTO ========== -->
+<section class="product-section">
+    <div class="container">
+        <p class="intro-text">Por isso criei a</p>
+        <h2>Masterclass <em>Primeira Sessão Infantil</em></h2>
+        <p class="product-sub">O passo a passo pra conduzir qualquer primeira sessão com segurança, do acolhimento ao fechamento.</p>
+
+        <div class="mockup-placeholder" id="mockupPlaceholder">[ MOCKUP DA MASTERCLASS ]</div>
+        <img class="mockup-img" id="mockupImg" src="" alt="Masterclass Primeira Sessão Infantil" style="display:none;">
+
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-number">1</div>
+                <div>
+                    <h4>Antes da criança chegar</h4>
+                    <p>O que coletar com os pais, como preparar a sala e qual roteiro mental seguir.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-number">2</div>
+                <div>
+                    <h4>Os primeiros 10 minutos</h4>
+                    <p>Como receber a criança, criar vínculo rápido e quebrar o gelo mesmo com quem não fala.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-number">3</div>
+                <div>
+                    <h4>Durante a sessão</h4>
+                    <p>Como escolher a atividade certa, ler os sinais e saber se tá funcionando.</p>
+                </div>
+            </div>
+            <div class="module-card">
+                <div class="module-number">4</div>
+                <div>
+                    <h4>Fechamento e pós-sessão</h4>
+                    <p>Como encerrar sem a criança surtar, devolver pros pais e registrar tudo pra próxima.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== BÔNUS ========== -->
+<section class="bonus-section">
+    <div class="container">
+        <span class="bonus-tag">
+            <i data-lucide="gift" style="width:14px;height:14px;"></i>
+            Exclusivo dessa página
+        </span>
+
+        <h2>E você ainda leva <em>3 bônus</em></h2>
+        <p class="bonus-sub">Materiais práticos pra complementar a masterclass.</p>
+
+        <div class="bonus-cards">
+            <div class="bonus-card">
+                <div class="bonus-icon">
+                    <i data-lucide="clipboard-check" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                    <h4>Checklist Pré-Sessão</h4>
+                    <p>Tudo que você precisa verificar antes da criança chegar. Sala, materiais, informações do caso. Imprime e usa.</p>
+                    <div class="bonus-price">Valor: <span>R$19,00</span> — <strong>GRÁTIS</strong></div>
+                </div>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-icon">
+                    <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                    <h4>Script de Acolhimento dos Pais</h4>
+                    <p>Roteiro palavra por palavra do que falar com os pais nos primeiros 5 minutos. Sem enrolar, sem travar.</p>
+                    <div class="bonus-price">Valor: <span>R$27,00</span> — <strong>GRÁTIS</strong></div>
+                </div>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-icon">
+                    <i data-lucide="file-text" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                    <h4>Ficha de Registro de Primeira Sessão</h4>
+                    <p>Modelo pronto pra preencher logo depois do atendimento. O que a criança fez, como reagiu, hipóteses e plano.</p>
+                    <div class="bonus-price">Valor: <span>R$19,00</span> — <strong>GRÁTIS</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== OFERTA / PREÇO ========== -->
+<section class="offer-section">
+    <div class="container">
+        <span class="exclusive-tag">
+            <i data-lucide="lock" style="width:14px;height:14px;"></i>
+            Oferta exclusiva — só aparece uma vez
+        </span>
+
+        <h2>Tudo isso por um único pagamento</h2>
+
+        <div class="offer-card">
+            <p class="stack-title">Resumo da oferta</p>
+
+            <ul class="stack-list">
+                <li>
+                    <span class="item-left">
+                        <i data-lucide="play-circle" style="width:18px;height:18px;"></i>
+                        Masterclass Primeira Sessão Infantil
+                    </span>
+                    <span class="item-value">R$197,00</span>
+                </li>
+                <li>
+                    <span class="item-left">
+                        <i data-lucide="gift" style="width:18px;height:18px;"></i>
+                        Checklist Pré-Sessão
+                    </span>
+                    <span class="item-value">R$19,00</span>
+                </li>
+                <li>
+                    <span class="item-left">
+                        <i data-lucide="gift" style="width:18px;height:18px;"></i>
+                        Script de Acolhimento dos Pais
+                    </span>
+                    <span class="item-value">R$27,00</span>
+                </li>
+                <li>
+                    <span class="item-left">
+                        <i data-lucide="gift" style="width:18px;height:18px;"></i>
+                        Ficha de Registro de Primeira Sessão
+                    </span>
+                    <span class="item-value">R$19,00</span>
+                </li>
+            </ul>
+
+            <div class="stack-total">
+                <span class="label">Valor total</span>
+                <span class="value">R$262,00</span>
+            </div>
+
+            <div class="offer-price-block">
+                <p class="from">Hoje, nessa página, por apenas:</p>
+                <p class="price"><small>R$</small>67<small>,00</small></p>
+                <p class="payment-info">Pagamento único • Acesso imediato • Vitalício</p>
+            </div>
+
+            <cakto-upsell-buttons>
+                <cakto-upsell-accept
+                    bg-color="#2A9D8F"
+                    text-color="#ffffff"
+                    upsell-accept-url="members_area"
+                    offer-id="omnux3i"
+                    app-base-url="https://app.cakto.com.br"
+                    offer-type="upsell"
+                    upsell-reject-url="members_area"
+                >
+                    Quero a Masterclass + Bônus por R$67
+                </cakto-upsell-accept>
+
+                <div class="cta-oneclick">
+                    <i data-lucide="shield-check"></i>
+                    Compra com 1 clique — sem preencher dados novamente
+                </div>
+
+                <div class="offer-seals">
+                    <div class="offer-seal">
+                        <i data-lucide="zap"></i>
+                        Acesso imediato
+                    </div>
+                    <div class="offer-seal">
+                        <i data-lucide="shield"></i>
+                        Garantia 7 dias
+                    </div>
+                    <div class="offer-seal">
+                        <i data-lucide="lock"></i>
+                        Pagamento seguro
+                    </div>
+                </div>
+            </cakto-upsell-buttons>
+        </div>
+
+        <cakto-upsell-reject upsell-reject-url="members_area">
+            Não, obrigada. Quero seguir apenas com o kit.
+        </cakto-upsell-reject>
+    </div>
+</section>
+
+<!-- ========== GARANTIA ========== -->
+<section class="guarantee-section">
+    <div class="container">
+        <div class="guarantee-box">
+            <div class="guarantee-seal">
+                <span class="number">7</span>
+                <span class="label">dias de<br>garantia</span>
+            </div>
+            <div class="guarantee-text">
+                <h3>Risco zero pra você</h3>
+                <p>Se em 7 dias você sentir que a masterclass não te deu segurança pra conduzir a primeira sessão, é só pedir o reembolso. Devolvemos 100% do valor. <strong>Sem perguntas.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SCRIPT ========== -->
+<script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+<script>
+    lucide.createIcons();
+
+    // Carrega mockup salvo
+    const mockup = localStorage.getItem('masterclass_mockup');
+    if (mockup) {
+        const img = document.getElementById('mockupImg');
+        const placeholder = document.getElementById('mockupPlaceholder');
+        img.src = mockup;
+        img.style.display = 'block';
+        placeholder.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
