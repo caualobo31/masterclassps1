@@ -144,21 +144,20 @@
             margin: 0 auto 36px;
         }
 
-        /* MOCKUP PLACEHOLDER */
-        .mockup-placeholder {
+        /* MOCKUP */
+        .mockup-img {
             width: 100%;
             max-width: 420px;
-            height: 240px;
+            display: block;
             margin: 0 auto 36px;
-            background: rgba(255,255,255,0.1);
-            border: 2px dashed rgba(255,255,255,0.3);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.5);
-            font-weight: 600;
-            font-size: 14px;
+            border-radius: 16px;
+            filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35));
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-10px); }
         }
 
         /* MÓDULOS */
@@ -696,8 +695,7 @@
         <h2>Pack Avançado: <em>+50 Recursos</em> para Casos Complexos</h2>
         <p class="product-sub">Recursos terapêuticos específicos para as demandas que mais assustam na clínica infantil. Prontos para imprimir, no mesmo formato do kit que você acabou de comprar.</p>
 
-        <!-- TROCAR pelo mockup real -->
-        <div class="mockup-placeholder">[ MOCKUP DO PACK AVANÇADO ]</div>
+        <img class="mockup-img" src="mockup.png" alt="Pack Avançado — +50 Recursos para Casos Complexos">
 
         <div class="modules-grid">
             <div class="module-card">
