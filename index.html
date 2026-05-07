@@ -608,7 +608,7 @@
         cakto-upsell-reject::part(button) {
             background: none !important;
             border: none !important;
-            color: rgba(255,255,255,0.5) !important;
+            color: var(--text-muted) !important;
             font-family: 'Poppins', sans-serif !important;
             font-size: 13px !important;
             font-weight: 400 !important;
@@ -954,12 +954,12 @@
                         Pagamento seguro
                     </div>
                 </div>
+
+                <cakto-upsell-reject upsell-reject-url="members_area">
+                    Não, obrigada. Quero seguir apenas com o kit.
+                </cakto-upsell-reject>
             </cakto-upsell-buttons>
         </div>
-
-        <cakto-upsell-reject upsell-reject-url="members_area">
-            Não, obrigada. Quero seguir apenas com o kit.
-        </cakto-upsell-reject>
     </div>
 </section>
 
