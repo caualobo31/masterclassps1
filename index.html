@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://wiapy.com/sell/1.0.0/sell.min.js"></script>
     <style>
         :root {
             --teal: #2A9D8F;
@@ -582,51 +583,9 @@
 
         .decline-link:hover { color: rgba(255,255,255,0.7); }
 
-        /* ========== CAKTO BUTTONS ========== */
-        cakto-upsell-accept { display: block; margin-bottom: 10px; }
-
-        cakto-upsell-accept::part(button) {
-            display: block !important;
-            width: 100% !important;
-            background: var(--teal) !important;
-            color: var(--white) !important;
-            font-family: 'Poppins', sans-serif !important;
-            font-size: 17px !important;
-            font-weight: 800 !important;
-            padding: 18px 24px !important;
-            border-radius: 50px !important;
-            border: none !important;
-            cursor: pointer !important;
-            box-shadow: 0 6px 20px rgba(42,157,143,0.35) !important;
-            transition: all 0.3s !important;
-            text-align: center !important;
-        }
-
-        cakto-upsell-accept::part(button):hover {
-            background: var(--teal-dark) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 28px rgba(42,157,143,0.45) !important;
-        }
-
-        cakto-upsell-reject { display: block; margin-top: 20px; text-align: center; }
-
-        cakto-upsell-reject::part(button) {
-            background: none !important;
-            border: none !important;
-            color: var(--text-muted) !important;
-            font-family: 'Poppins', sans-serif !important;
-            font-size: 13px !important;
-            font-weight: 400 !important;
-            cursor: pointer !important;
-            padding: 8px !important;
-            text-align: center !important;
-            width: 100% !important;
-            transition: color 0.2s !important;
-        }
-
-        cakto-upsell-reject::part(button):hover {
-            color: rgba(255,255,255,0.7) !important;
-        }
+        /* ========== WIAPY BUTTONS ========== */
+        #wiapy_upsell,
+        #wiapy_upsell_2 { margin-bottom: 0; }
 
         /* ========== GARANTIA ========== */
         .guarantee-section {
@@ -930,23 +889,22 @@
             </div>
 
             <!-- LINK CHECKOUT -->
-            <!-- TROCAR PELO OFFER_ID DO PACK AVANÇADO -->
-            <cakto-upsell-buttons>
-                <cakto-upsell-accept
-                    bg-color="#2A9D8F"
-                    text-color="#ffffff"
-                    upsell-accept-url="members_area"
-                    offer-id="SEU_OFFER_ID_AQUI"
-                    app-base-url="https://app.cakto.com.br"
-                    offer-type="upsell"
-                    upsell-reject-url="members_area"
-                >
-                    Quero o Pack Avançado
-                </cakto-upsell-accept>
-
-                <cakto-upsell-reject upsell-reject-url="members_area">
-                    Não, obrigada. Quero seguir apenas com o kit.
-                </cakto-upsell-reject>
+            <div id="wiapy_upsell"></div>
+            <script>
+            initWiapyUpsell({
+                linkUrl: "https://pay.wiapy.com/checkout/undefined",
+                linkText: "Quero o Pack Avançado por R$27,90",
+                styles: {
+                    backgroundColor: "#2A9D8F",
+                    hoverBackgroundColor: "#238577",
+                    fontSize: "17px",
+                    borderRadius: "50px"
+                },
+                refusalLinkUrl: "https://wiapy.com/login",
+                refusalLinkText: "Não, obrigada. Quero seguir apenas com o kit.",
+                refusalLinkColor: "#7F8C9B"
+            });
+            </script>
 
                 <div class="cta-oneclick">
                     <i data-lucide="shield-check"></i>
@@ -967,8 +925,6 @@
                         Pagamento seguro
                     </div>
                 </div>
-
-            </cakto-upsell-buttons>
         </div>
     </div>
 </section>
@@ -997,30 +953,28 @@
 
         <div class="cta-wrapper">
             <!-- LINK CHECKOUT -->
-            <!-- TROCAR PELO OFFER_ID DO PACK AVANÇADO -->
-            <cakto-upsell-buttons>
-                <cakto-upsell-accept
-                    bg-color="#2A9D8F"
-                    text-color="#ffffff"
-                    upsell-accept-url="members_area"
-                    offer-id="SEU_OFFER_ID_AQUI"
-                    app-base-url="https://app.cakto.com.br"
-                    offer-type="upsell"
-                    upsell-reject-url="members_area"
-                >
-                    Quero o Pack Avançado
-                </cakto-upsell-accept>
-            </cakto-upsell-buttons>
-
-            <cakto-upsell-reject upsell-reject-url="members_area">
-                Não, obrigada. Quero seguir apenas com o kit.
-            </cakto-upsell-reject>
+            <div id="wiapy_upsell_2"></div>
+            <script>
+            initWiapyUpsell({
+                containerId: "wiapy_upsell_2",
+                linkUrl: "https://pay.wiapy.com/checkout/undefined",
+                linkText: "Quero o Pack Avançado por R$27,90",
+                styles: {
+                    backgroundColor: "#2A9D8F",
+                    hoverBackgroundColor: "#238577",
+                    fontSize: "17px",
+                    borderRadius: "50px"
+                },
+                refusalLinkUrl: "https://wiapy.com/login",
+                refusalLinkText: "Não, obrigada. Quero seguir apenas com o kit.",
+                refusalLinkColor: "#FAF9F6"
+            });
+            </script>
         </div>
     </div>
 </section>
 
 <!-- ========== SCRIPTS ========== -->
-<script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
 <script>
     lucide.createIcons();
 
