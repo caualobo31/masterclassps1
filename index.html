@@ -450,6 +450,62 @@
             margin-top: 6px;
         }
 
+        /* MOCKUP NO CARD */
+        .mockup-img-card {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 22px;
+        }
+
+        /* COUNTDOWN */
+        .countdown-wrap {
+            background: #FFF8EE;
+            border: 1px solid #F4C553;
+            border-radius: 12px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .countdown-block {
+            background: var(--salmon);
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 800;
+            width: 54px;
+            height: 46px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown-sep {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
         /* CTA PRINCIPAL */
         .cta-main {
             display: block;
@@ -741,7 +797,7 @@
         </div>
 
         <div style="text-align:center;">
-            <a href="#oferta" class="cta-main" style="display:inline-block;width:auto;padding:16px 36px;background:var(--gold);color:var(--text-dark);box-shadow:0 6px 20px rgba(244,197,83,0.4);">Quero o Pack Avançado por R$27,90 →</a>
+            <a href="#oferta" class="cta-main" style="display:inline-block;width:auto;padding:16px 36px;background:var(--gold);color:var(--text-dark);box-shadow:0 6px 20px rgba(244,197,83,0.4);">Quero o Pack Avançado →</a>
         </div>
     </div>
 </section>
@@ -799,6 +855,8 @@
         <h2>Tudo isso por um único pagamento</h2>
 
         <div class="offer-card">
+            <img class="mockup-img-card" src="mockup.png" alt="Pack Avançado — +50 Recursos para Casos Complexos">
+
             <p class="stack-title">O que você leva</p>
 
             <ul class="stack-list">
@@ -844,6 +902,18 @@
                 <span class="value">R$89,50</span>
             </div>
 
+            <div class="countdown-wrap">
+                <span class="countdown-label">
+                    <i data-lucide="alarm-clock" style="width:17px;height:17px;color:var(--salmon);"></i>
+                    Oferta expira em:
+                </span>
+                <div class="countdown-timer">
+                    <div class="countdown-block" id="cd-min">10</div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-block" id="cd-sec">00</div>
+                </div>
+            </div>
+
             <div class="offer-price-block">
                 <p class="from">Hoje, nessa página, por apenas:</p>
                 <p class="price"><small>R$</small>27<small>,90</small></p>
@@ -862,7 +932,7 @@
                     offer-type="upsell"
                     upsell-reject-url="members_area"
                 >
-                    Quero o Pack Avançado por R$27,90
+                    Quero o Pack Avançado
                 </cakto-upsell-accept>
 
                 <div class="cta-oneclick">
@@ -928,7 +998,7 @@
                     offer-type="upsell"
                     upsell-reject-url="members_area"
                 >
-                    Quero o Pack Avançado por R$27,90
+                    Quero o Pack Avançado
                 </cakto-upsell-accept>
             </cakto-upsell-buttons>
 
@@ -943,6 +1013,26 @@
 <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
 <script>
     lucide.createIcons();
+
+    // Countdown — 10 minutos, persiste na sessão
+    (function () {
+        const KEY = 'upsell_cd_end';
+        let end = sessionStorage.getItem(KEY);
+        if (!end) {
+            end = Date.now() + 10 * 60 * 1000;
+            sessionStorage.setItem(KEY, end);
+        }
+        end = parseInt(end);
+        const minEl = document.getElementById('cd-min');
+        const secEl = document.getElementById('cd-sec');
+        function tick() {
+            const left = Math.max(0, end - Date.now());
+            minEl.textContent = String(Math.floor(left / 60000)).padStart(2, '0');
+            secEl.textContent = String(Math.floor((left % 60000) / 1000)).padStart(2, '0');
+            if (left > 0) setTimeout(tick, 500);
+        }
+        tick();
+    })();
 </script>
 
 </body>
