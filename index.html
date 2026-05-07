@@ -69,15 +69,8 @@
             display: block;
         }
 
-        /* ========== INTRO COMPACTO ========== */
-        .intro-block {
-            background: var(--white);
-            padding: 32px 0 28px;
-            text-align: center;
-            border-bottom: 3px solid var(--gold);
-        }
-
-        .intro-tag {
+        /* ── intro dentro da product-section ── */
+        .product-intro-tag {
             display: inline-flex;
             align-items: center;
             gap: 7px;
@@ -92,24 +85,22 @@
             text-transform: uppercase;
         }
 
-        .intro-block h1 {
+        .product-headline {
             font-size: clamp(20px, 4vw, 28px);
             font-weight: 800;
-            color: var(--text-dark);
-            max-width: 580px;
+            color: var(--white);
+            max-width: 560px;
             margin: 0 auto 10px;
             line-height: 1.35;
         }
 
-        .intro-block h1 em {
-            color: var(--teal);
-            font-style: normal;
-        }
+        .product-headline em { color: var(--gold); font-style: normal; }
 
-        .intro-block .once-line {
+        .product-once-line {
             font-size: 14px;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.65);
             font-weight: 400;
+            margin-bottom: 32px;
         }
 
         /* ========== SEÇÃO DO PRODUTO ========== */
@@ -683,21 +674,16 @@
     <p>Seu pagamento foi aprovado com sucesso!<span>O acesso ao Kit Consultório Lúdico chegará no seu email em instantes.</span></p>
 </div>
 
-<!-- ========== INTRO COMPACTO ========== -->
-<div class="intro-block">
-    <div class="container">
-        <div class="intro-tag">
-            <i data-lucide="gift" style="width:14px;height:14px;"></i>
-            Oferta exclusiva dessa página
-        </div>
-        <h1>Você tem os recursos pra sessão comum. Mas e quando chega um caso que <em>te tira o chão</em>?</h1>
-        <p class="once-line">Essa oferta só aparece uma vez.</p>
-    </div>
-</div>
-
 <!-- ========== PRODUTO ========== -->
 <section class="product-section">
     <div class="container">
+        <div class="product-intro-tag">
+            <i data-lucide="gift" style="width:14px;height:14px;"></i>
+            Oferta exclusiva dessa página
+        </div>
+        <h1 class="product-headline">Você tem os recursos pra sessão comum. Mas e quando chega um caso que <em>te tira o chão</em>?</h1>
+        <p class="product-once-line">Essa oferta só aparece uma vez.</p>
+
         <p class="intro-text">Por isso criei o</p>
         <h2>Pack Avançado: <em>+50 Recursos</em> para Casos Complexos</h2>
         <p class="product-sub">Recursos terapêuticos específicos para as demandas que mais assustam na clínica infantil. Prontos para imprimir, no mesmo formato do kit que você acabou de comprar.</p>
