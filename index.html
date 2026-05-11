@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://wiapy.com/sell/1.0.0/sell.min.js"></script>
     <style>
         :root {
             --teal: #2A9D8F;
@@ -583,9 +582,99 @@
 
         .decline-link:hover { color: rgba(255,255,255,0.7); }
 
-        /* ========== WIAPY BUTTONS ========== */
-        #wiapy_upsell,
-        #wiapy_upsell_2 { margin-bottom: 0; }
+        /* ========== LINK DE RECUSA ========== */
+        .decline-link {
+            display: block;
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            text-align: center;
+            width: 100%;
+        }
+
+        .decline-link:hover { color: var(--text-dark); }
+
+        /* ========== MODAL DE RECUSA ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.open { display: flex; }
+
+        .modal-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 36px;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background: #f0faf9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--teal);
+        }
+
+        .modal-box h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .modal-box p {
+            font-size: 14px;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .modal-box p:last-of-type { margin-bottom: 24px; }
+
+        .modal-email {
+            display: inline-block;
+            font-weight: 700;
+            color: var(--teal);
+        }
+
+        .modal-close {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--teal);
+            color: var(--white);
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover { background: var(--teal-dark); }
 
         /* ========== GARANTIA ========== */
         .guarantee-section {
@@ -889,22 +978,7 @@
             </div>
 
             <!-- LINK CHECKOUT -->
-            <div id="wiapy_upsell"></div>
-            <script>
-            initWiapyUpsell({
-                linkUrl: "https://pay.wiapy.com/checkout/69fca93cc2ab2347ebe95b10",
-                linkText: "Quero o Pack Avançado",
-                styles: {
-                    backgroundColor: "#2A9D8F",
-                    hoverBackgroundColor: "#238577",
-                    fontSize: "17px",
-                    borderRadius: "50px"
-                },
-                refusalLinkUrl: "https://wiapy.com/login",
-                refusalLinkText: "Não, obrigada. Quero seguir apenas com o kit.",
-                refusalLinkColor: "#7F8C9B"
-            });
-            </script>
+            <a href="https://ggcheckout.app/checkout/v5/tkHsxLL5I6E2gjeXlHhd" class="cta-main" target="_blank">Quero o Pack Avançado</a>
 
                 <div class="cta-oneclick">
                     <i data-lucide="shield-check"></i>
@@ -925,6 +999,10 @@
                         Pagamento seguro
                     </div>
                 </div>
+
+                <button class="decline-link" onclick="document.getElementById('modal-recusa').classList.add('open')">
+                    Não, obrigada. Quero seguir apenas com o kit.
+                </button>
         </div>
     </div>
 </section>
@@ -956,6 +1034,20 @@
         </div>
     </div>
 </section>
+
+<!-- ========== MODAL DE RECUSA ========== -->
+<div id="modal-recusa" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal-box">
+        <div class="modal-icon">
+            <i data-lucide="package-check" style="width:32px;height:32px;"></i>
+        </div>
+        <h3>Seu Kit Consultório Lúdico já está a caminho!</h3>
+        <p>O acesso ao kit que você comprou foi enviado para o seu e-mail. Verifique também a caixa de <strong>spam ou lixo eletrônico</strong> — às vezes o e-mail cai por lá.</p>
+        <p>Se tiver qualquer dificuldade para acessar, entre em contato:<br>
+        <a class="modal-email" href="mailto:contatolbgomes@gmail.com">contatolbgomes@gmail.com</a></p>
+        <button class="modal-close" onclick="document.getElementById('modal-recusa').classList.remove('open')">Entendi, obrigada!</button>
+    </div>
+</div>
 
 <!-- ========== SCRIPTS ========== -->
 <script>
